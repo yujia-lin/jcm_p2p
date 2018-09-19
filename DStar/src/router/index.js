@@ -7,6 +7,7 @@ Vue.use(Router)
 
 export default new Router({
 	mode: 'history',
+	linkActiveClass:"navAct",
 	routes: [
 	{
 	      path: '/',
@@ -14,7 +15,7 @@ export default new Router({
 	    },
 	    {
 	      path: '/trend',
-	      component: trend
+	      component: trend,
 	    },
 	    {
 	      path: '/testing',

@@ -1,5 +1,6 @@
 <template>
 	<div id="testing">
+		<!--<button @click="che">ce</button>-->
 		<alltarget></alltarget>
 		<overproof></overproof>
 	</div>
@@ -14,11 +15,19 @@ export default {
 		alltarget,
 		overproof
 	},
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App',
-    }
-  },
+  	data () {
+	    return {
+	      msg: 'Welcome to Your Vue.js App',
+	    }
+	},
+  	mounted(){
+	    this.ce();
+	},
+	methods: {
+	  	ce(){
+	  		console.log(this.$route.query.num,this.$route.query.id)
+	  	}
+	}
 }
 </script>
 

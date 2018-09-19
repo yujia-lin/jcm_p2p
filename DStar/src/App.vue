@@ -5,13 +5,13 @@
     	<router-view/>
     </div>
     <div class="nav_box f_flex">
-    	<router-link to="./testing" class="z_flex navAct">
+    	<router-link :to="{ path:'./testing', query: {id:5, num: (ce+1)}}" class="z_flex  nav_box_item" active-class="navAct" >
     		<div>
     			<h5 class="nav_icon nav_icon1"></h5>
     			<p>检测</p>
     		</div>
     	</router-link>
-    	<router-link to="./trend"  class="z_flex">
+    	<router-link :to="{ path:'./trend'}" class="z_flex nav_box_item" @click="toggle()">
     		<div>
     			<h5 class="nav_icon nav_icon2"></h5>
     			<p>趋势</p>
@@ -30,7 +30,21 @@ export default {
 		heads,
 
 	},
-  name: 'App'
+  name: 'App',
+  data(){
+  	return {
+      ce: 1,
+      act:true,
+      act1:false,
+    }
+  },
+  methods:{
+  	toggle(){
+
+  		console.log(11)
+
+  	}
+  }
 }
 </script>
 
@@ -120,5 +134,8 @@ li {
 }
 .navAct .nav_icon2{
 	background-image: url(static/nav_icon2_act.png);
+}
+.navAct p{
+	color: #00aff9;
 }
 </style>

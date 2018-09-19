@@ -1,9 +1,7 @@
 <template>
 	<div id="trend">
-
 		<week></week>
 		<today></today>
-		
 	</div>
 </template>
 
