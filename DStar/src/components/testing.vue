@@ -21,12 +21,13 @@ export default {
 	    }
 	},
   	mounted(){
-	    this.ce();
+//	    this.ce();
 	},
 	methods: {
-	  	ce(){
-	  		console.log(this.$route.query.num,this.$route.query.id)
-	  	}
+//		http://10.204.131.19/f/api/fetchAllMonitorData
+//	  	ce(){
+//	  		console.log(this.$route.query.num,this.$route.query.id)
+//	  	}
 	}
 }
 </script>

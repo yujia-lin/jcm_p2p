@@ -43,7 +43,7 @@ export default {
       params:params
     }) 
     .then(response => {
-      console.log(response.data);
+    	return response
     })
   }
 }

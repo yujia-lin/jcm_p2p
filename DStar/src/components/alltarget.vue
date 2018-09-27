@@ -5,72 +5,29 @@
 			<p>实时监控</p>
 			<h5>1#</h5>
 		</div>
+		<!--<p v-for="(item,index) in fetchAllMonitorData">{{item.monitorValue}}</p>-->
 		<div class="alltarget_main">
 			<mt-swipe :auto="5000000">
 			  <mt-swipe-item>
 			  	<div class="alltarget_list_box1 alltarget_list_box">
 			  		<ul>
-			  			<li>
-			  				<h5><span class="bgLinear1 bgLinear wsd-52"></span></h5>
-			  				<h4>温度</h4>
-			  				<p>0.00</p>
-			  			</li>
-			  			<li>
-			  				<h5><span class="bgLinear2 bgLinear wsd-64"></span></h5>
-			  				<h4>湿度</h4>
-			  				<p>0.00</p>
-			  			</li>
-			  			<li>
-			  				<h5><span class="bgLinear3 bgLinear wsd-69"></span></h5>
-			  				<h4>甲苯</h4>
-			  				<p>0.00</p>
-			  			</li>
-			  			<li>
-			  				<h5><span class="bgLinear4 bgLinear  wsd-77"></span></h5>
-			  				<h4>苯</h4>
-			  				<p>0.00</p>
-			  			</li>
-			  			<li>
-			  				<h5><span class="bgLinear5 bgLinear  wsd-90 f-38"></span></h5>
-			  				<h4>二甲苯</h4>
-			  				<p>0.00</p>
+			  			<li v-for="(item,index) in fetchAllMonitorData" v-if="index<8">
+			  				<h5><span class="bgLinear " :class="[item.icon,'bgLinear'+(index+1)]"></span></h5>
+			  				<h4>{{item.monitorName}}</h4>
+			  				<p>{{item.monitorValue}}</p>
 			  			</li>
 			  			
-			  			<li>
-			  				<h5><span class="bgLinear6 bgLinear  wsd-65"></span></h5>
-			  				<h4>甲醇</h4>
-			  				<p>0.00</p>
-			  			</li>
-			  			<li>
-			  				<h5><span class="bgLinear7 bgLinear  wsd-88"></span></h5>
-			  				<h4>二氧化碳</h4>
-			  				<p>0.00</p>
-			  			</li>
-			  			<li>
-			  				<h5><span class="bgLinear8 bgLinear  wsd-89"></span></h5>
-			  				<h4>二氧化硫</h4>
-			  				<p>0.00</p>
-			  			</li>
 			  		</ul>
 			  	</div>
 			  </mt-swipe-item>
 			  <mt-swipe-item>
 			  	<div class="alltarget_list_box2 alltarget_list_box">
-			  		<li>
-		  				<h5><span class="bgLinear9 bgLinear  wsd-91"></span></h5>
-		  				<h4>丙酮</h4>
-		  				<p>0.00</p>
+			  		<li v-for="(item,index) in fetchAllMonitorData" v-if="index>=8">
+		  				<h5><span class="bgLinear" :class="[item.icon, (index+1)<=11 ? 'bgLinear'+(index+1)  : 'bgLinear'+((index+1)-11)]"></span></h5>
+		  				<h4>{{item.monitorName}}</h4>
+		  				<p>{{item.monitorValue}}</p>
 		  			</li>
-		  			<li>
-		  				<h5><span class="bgLinear10 bgLinear  wsd-54"></span></h5>
-		  				<h4>异丙醇</h4>
-		  				<p>0.00</p>
-		  			</li>
-		  			<li>
-		  				<h5><span class="bgLinear11 bgLinear  wsd-45"></span></h5>
-		  				<h4>乙醇乙酯</h4>
-		  				<p>0.00</p>
-		  			</li>
+		  		
 			  	</div>
 			  </mt-swipe-item>
 			</mt-swipe>
@@ -82,9 +39,22 @@
 export default {
   data () {
     return {
-      msg: '',
+      fetchAllMonitorData: null,
     }
   },
+  mounted(){
+	    this.getdata();
+  },
+  methods:{
+  	getdata(){
+  		this.$ajax.get("http://10.204.131.19/f/api/fetchAllMonitorData",{
+  			clientType:1
+  		}).then(response => {
+  			console.log(response.data.data)
+			this.fetchAllMonitorData=response.data.data;
+		})
+  	}
+  }
 }
 </script>
 
