@@ -5,7 +5,8 @@
     	<router-view/>
     </div>
     <div class="nav_box f_flex">
-    	<router-link :to="{ path:'./testing', query: {id:5, num: (ce+1)}}" class="z_flex  nav_box_item" active-class="navAct" >
+    	<router-link :to="{ path:'./testing'}" class="z_flex  nav_box_item" active-class="navAct" exact>
+    	<!--<router-link :to="{ path:'./testing', query: {id:5, num: (ce+1)}}" class="z_flex  nav_box_item" active-class="navAct" exact>-->
     		<div>
     			<h5 class="nav_icon nav_icon1"></h5>
     			<p>检测</p>
@@ -51,6 +52,10 @@ export default {
 <style>
 *{padding:0;margin:0;font-family:'Microsoft Yahei';color:#666;}
 html{overflow-x: hidden;background: #f2f6fa;}
+body{
+	width: 10rem;
+	margin: 0 auto;
+}
 li {list-style:none;}
 img {border:none;vertical-align:bottom}
 a{text-decoration:none;}

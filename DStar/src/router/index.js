@@ -8,9 +8,11 @@ Vue.use(Router)
 export default new Router({
 	mode: 'history',
 	linkActiveClass:"navAct",
+	routerLinkExactActive:"navAct",
 	routes: [
 	{
 	      path: '/',
+	      redirect:"/testing",
 	      component: testing
 	    },
 	    {

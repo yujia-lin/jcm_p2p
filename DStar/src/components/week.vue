@@ -3,7 +3,6 @@
 <div id="week">
 	<div class="weekHead">
 		<p class="ui-fl">本周温湿度曲线图</p>
-		<div class="select_box ui-fl">1#</div>
 		<div class="select_box ui-fr select_box_du">温度走势图</div>
 	</div>
 	<div class="chartBox">
