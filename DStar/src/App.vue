@@ -22,7 +22,7 @@
 
   </div>
 </template>
-
+//测试
 <script>
 import heads from "./components/heads"
 
