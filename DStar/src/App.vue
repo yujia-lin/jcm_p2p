@@ -4,6 +4,7 @@
   	<div class="main_box">
     	<router-view/>
     </div>
+    <input type="number"  name="" id="" value="" />
     <div class="nav_box f_flex">
     	<router-link :to="{ path:'./testing'}" class="z_flex  nav_box_item" active-class="navAct" exact>
     	<!--<router-link :to="{ path:'./testing', query: {id:5, num: (ce+1)}}" class="z_flex  nav_box_item" active-class="navAct" exact>-->
@@ -22,7 +23,7 @@
 
   </div>
 </template>
-//测试
+
 <script>
 import heads from "./components/heads"
 
@@ -50,6 +51,12 @@ export default {
 </script>
 
 <style>
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none !important;
+    margin: 0; 
+}
+input[type="number"]{-moz-appearance:textfield;}
 *{padding:0;margin:0;font-family:'Microsoft Yahei';color:#666;}
 html{overflow-x: hidden;background: #f2f6fa;}
 body{
