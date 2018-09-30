@@ -13,7 +13,7 @@
     			<p>检测</p>
     		</div>
     	</router-link>
-    	<router-link :to="{ path:'./trend'}" class="z_flex nav_box_item" @click="toggle()">
+    	<router-link :to="{ path:'./trend'}" class="z_flex nav_box_item">
     		<div>
     			<h5 class="nav_icon nav_icon2"></h5>
     			<p>趋势</p>
@@ -41,11 +41,6 @@ export default {
     }
   },
   methods:{
-  	toggle(){
-
-  		console.log(11)
-
-  	}
   }
 }
 </script>
